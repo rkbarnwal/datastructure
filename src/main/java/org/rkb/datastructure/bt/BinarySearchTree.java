@@ -68,27 +68,27 @@ public class BinarySearchTree<T extends Comparable<T>> {
 		 delete(root, toDelete);
 	 }
 	
-	private Node<T> delete(Node<T> root, T toDelete) {
-		if(root == null) {
+	private Node<T> delete(Node<T> node, T toDelete) {
+		if(node == null) {
 			throw new RuntimeException("cannot delete.");
 		}
-		else if(compare(root.data,toDelete)<0) {
-			root.left = delete(root.left,toDelete);
-		} else if(compare(root.data,toDelete)>0) {
-			root.left = delete(root.right,toDelete);
+		else if(compare(node.data,toDelete)<0) {
+			node.left = delete(node.left,toDelete);
+		} else if(compare(node.data,toDelete)>0) {
+			node.left = delete(node.right,toDelete);
 		} else {
-			 if (root.left == null) return root.right;
+			 if (node.left == null) return node.right;
 	         else
-	         if (root.right == null) return root.left;
+	         if (node.right == null) return node.left;
 	         else
 	         {
 	         // get data from the rightmost node in the left subtree
-	            root.data = retrieveData(root.left);
+	            node.data = retrieveData(node.left);
 	         // delete the rightmost node in the left subtree
-	            root.left =  delete(root.left, root.data) ;
+	            node.left =  delete(node.left, node.data) ;
 	         }
 		}
-		return root;
+		return node;
 	}
 
 	private T retrieveData(Node<T> p) {
