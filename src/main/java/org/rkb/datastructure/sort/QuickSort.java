@@ -3,7 +3,7 @@ package org.rkb.datastructure.sort;
 public class QuickSort {
 	public static void main(String... args) {
 		QuickSort qs = new QuickSort();
-		int data[] = { 9, 8, 4, 7, 6, 21, 4, 0, 1, -1 };
+		int data[] = { 10,14,91,18,72,551,82749,23,55,26 };
 		System.out.println(data.length - 1);
 		qs.quickSort(data, 0, data.length - 1);
 		for (int i : data) {
@@ -33,7 +33,7 @@ public class QuickSort {
 		if (low < j)
 			quickSort(data, low, j);
 		if (high > i)
-			quickSort(data, j, high);
+			quickSort(data, i, high);
 	}
 
 }
