@@ -14,9 +14,9 @@ public class LRUCache<T> {
 
 	public T accessCacheData(T data) {
 		CacheNode<T> dataNode = null;
-		if(cacheMap.containsKey(dataNode)) {
+		if(cacheMap.containsKey(data)) {
 			// If data is present in the cache, move the data to the start of list
-			dataNode = cacheMap.get(dataNode);
+			dataNode = cacheMap.get(data);
 			dataCacheList.moveDataToFront(dataNode);
 		}
 		else {
@@ -38,7 +38,7 @@ public class LRUCache<T> {
         cache1.printCache();
         cache1.accessCacheData(7);
         cache1.printCache();
-        cache1.accessCacheData(15);
+        cache1.accessCacheData(5);
         cache1.printCache();
         cache1.accessCacheData(34);
         cache1.printCache();
